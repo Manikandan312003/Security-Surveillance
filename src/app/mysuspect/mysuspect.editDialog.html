@@ -1,0 +1,39 @@
+<style>
+  :host {
+  display: block;
+  overflow: hidden;
+  align-content: center;
+  align-items: center;
+}
+</style>
+
+<h1  mat-dialog-title>Update Suspect {{data.id}}</h1>
+    <div mat-dialog-content> 
+      <p>
+          <mat-form-field>
+            <mat-label  >Name</mat-label>
+            <input matInput [(ngModel)]="data.name">
+          </mat-form-field><br>
+          <mat-form-field>
+            <mat-label  >reason</mat-label>
+            <input matInput [(ngModel)]="data.reason"> 
+          </mat-form-field><br>
+        <mat-form-field>
+            <mat-label  >Location</mat-label>
+            <input matInput [(ngModel)]="data.location"></mat-form-field><br>
+        <mat-form-field>
+            <mat-label  >Latitude</mat-label>
+            <input matInput [(ngModel)]="data.latitude"></mat-form-field><br>
+        <mat-form-field>
+            <mat-label  >Longitude</mat-label>
+            <input matInput [(ngModel)]="data.longitude"></mat-form-field><br>
+          
+        <button mat-raised-button (click)="confirmEdit()"> Save</button>
+        <button mat-raised-button (click)="cancelEdit()"> Cancel</button>
+      </p>
+    </div>
+
+  
+<style>
+  h1{text-align: center;}
+</style>

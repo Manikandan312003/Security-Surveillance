@@ -1,0 +1,19 @@
+/* Custom ngx-toastr styles */
+.toast-custom {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: #ffffff; /* Text color */
+    border-radius: 8px; /* Rounded corners */
+  }
+  
+  .toast-custom-title {
+    font-weight: bold;
+  }
+  
+  .toast-custom-success {
+    background-color: rgba(46, 204, 113, 0.7); /* Custom background color for success toasts */
+  }
+  
+  .toast-custom-error {
+    background-color: rgba(231, 76, 60, 0.7); /* Custom background color for error toasts */
+  }
+  

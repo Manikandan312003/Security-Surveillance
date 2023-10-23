@@ -1,0 +1,61 @@
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    /* width: 100%;
+    object-fit: cover; */
+  }
+  
+  .row {
+    display: flex;
+  }
+  
+  .col {
+    flex: 1;
+    padding: 1em;
+    border: solid;
+    margin: 2px;
+  }
+
+  .example-card {
+    max-width: 400px;
+    margin: 16px;
+  }
+  
+  .text-field {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #333;
+  }
+  
+  /* styles.css */
+
+.suspect-card {
+  margin: 16px;
+  max-width: 300px;
+  transition: transform 0.2s;
+}
+
+.suspect-card:hover {
+  transform: scale(1.03);
+}
+
+.card-image {
+  height: 200px;
+  object-fit: cover;
+}
+
+.text-field {
+  margin-top: 10px;
+}
+
+.mat-title {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.mat-subheading {
+  font-size: 16px;
+  color: gray;
+}

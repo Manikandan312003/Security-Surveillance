@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ServiceService } from './services/service.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'SuspectTracker';
+  constructor(service:ServiceService,router:Router){
+    console.log(window.location.pathname)
+    console.log(service.loggedInUserId,service.userLoggedIn)
+    if(!service.userLoggedIn){
+      router.navigateByUrl("login")
+    }
+    else{
+      if(window.location.pathname=="/"){
+        router.navigateByUrl("home")
+      }
+    }
+    
+    
+    
+  }
+
 }

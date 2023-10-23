@@ -1,16 +1,53 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { FileuploadComponent } from './fileupload/fileupload.component';
+import { MysuspectComponent } from './mysuspect/mysuspect.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatIconModule} from '@angular/material/icon';
+ 
+import {MatButtonModule} from '@angular/material/button';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { AllsuspectComponent } from './allsuspect/allsuspect.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {FormsModule} from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { MatInputModule } from '@angular/material/input';
+// import { MatFileUploadModule } from 'angular-material-fileupload';
+
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatDividerModule} from '@angular/material/divider';
+import { MatToolbarModule } from "@angular/material/toolbar";
+
+import { FlexLayoutModule } from "@angular/flex-layout";
+
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSliderModule} from '@angular/material/slider';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    FileuploadComponent,
+    MysuspectComponent,
+    AllsuspectComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    MatSliderModule,
+    BrowserModule,MatFormFieldModule,MatInputModule,MatCardModule,MatTooltipModule,MatDividerModule,FlexLayoutModule,MatToolbarModule,
+    AppRoutingModule,MatButtonModule,MatGridListModule,HttpClientModule,MatIconModule,MatDialogModule,BrowserAnimationsModule,FormsModule,
+    ToastrModule.forRoot(
+      {positionClass:'toast-top-center',
+      maxOpened:5,
+    
+  }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

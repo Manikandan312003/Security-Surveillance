@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<h1 >My Suspect </h1>
+<mat-grid-list cols="3" >
+<div *ngIf="suspects">
+<div *ngFor="let suspect of suspects;let i=index">
+    <mat-grid-tile >
+        <mat-card>
+        <mat-card-header >
+            <h2>Suspect ID: {{ suspect[0] }}
+<span style=" padding-left: 20px;">
+    <button mat-icon-button (click)="deleteSuspect(suspect[0],suspect[2])"><mat-icon >delete</mat-icon></button >
+    <button mat-icon-button (click)="editsuspect(suspect[0],suspect[2],suspect[3],suspect[4],suspect[5],suspect[6],suspect[7])" ><mat-icon>edit</mat-icon></button>
+</span>
+            </h2>
+        </mat-card-header>
+        <mat-card-content>
+        <div class="container" >
+            
+        <div class="row">
+        <img class="col" [src]="suspect[1]" alt="Suspect Image">
+
+        </div>
+    <div class="row">
+        <h3 class="col">{{suspect[2]}}</h3>
+        <h3 class="col">{{suspect[3]}}</h3>
+    </div>
+    <div class="row">
+
+        <h3 *ngIf="suspect[5]" class="col">{{suspect[5]}}</h3>
+        <h3 *ngIf="suspect[6]" class="col">{{suspect[6]}}</h3>
+        <h3 *ngIf="suspect[7]" class="col">{{suspect[7]}}</h3>
+        </div>
+</div>
+</mat-card-content>     
+</mat-card>
+</mat-grid-tile>
+
+</div>
+</div>
+</mat-grid-list>
+<div *ngIf="!suspects.length ">
+No suspect
+</div>
+
+

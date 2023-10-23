@@ -1,0 +1,36 @@
+
+<mat-form-field class="example-full-width">
+  <mat-label>Name</mat-label>
+  <input matInput placeholder="Enter Suspect Name" [(ngModel)]="name">
+</mat-form-field>
+<br>
+<mat-form-field class="example-full-width">
+  <mat-label>Reason</mat-label>
+  <input matInput placeholder="Enter reason or Suspect Details" [(ngModel)]="reason">
+</mat-form-field>
+
+<br>
+
+  <input hidden="true" #uploadFile id="uploadFile" type="file" (change)="onFileSelected($event)" accept="image/*" >
+  <button mat-raised-button (click)="uploadFile.click()">
+  <!-- <button style="width: auto;" mat-icon-button (click)="uploadFile.click()"> -->
+          Choose File <mat-icon >attachment</mat-icon>
+        <!-- </button> -->
+      </button><br><br><br>
+        
+  <div *ngIf="photo">
+
+<mat-card class="example-card" > 
+  <mat-card-header class="example-header"
+          style="padding-left: 40%;"> 
+  <h2><span></span>{{photo.name}}</h2 > 
+  </mat-card-header> 
+  <mat-card-content> 
+    <img [src] ="photo?createObjectURL(photo):''" style="display: flex; width: 50%;"> 
+  </mat-card-content> 
+  </mat-card> 
+  
+  
+  </div>
+
+<button mat-raised-button [disabled]="uploading" (click)="upload()">Upload</button>

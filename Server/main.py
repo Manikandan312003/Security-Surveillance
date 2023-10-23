@@ -96,6 +96,20 @@ userid INTEGER Not Null);
 
 
 # For client
+
+
+#Login and Password
+import bcrypt
+
+
+def hashPassword(password):
+    salt = bcrypt.gensalt()
+    hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
+    return hashed_password
+
+def verifyPassword(stored_password, provided_password):
+    return bcrypt.checkpw(provided_password.encode('utf-8'), stored_password)
+
 @app.route('/check', methods=['GET'])
 def checkPassword():
     try:
@@ -112,7 +126,8 @@ def checkPassword():
         else:
             return jsonify({"status": "User Not Exist"})
 
-        if password == originalPassword:
+        originalPassword = bytes(originalPassword[2:-1],'utf-8')
+        if verifyPassword(originalPassword,password):
             return jsonify({"status": "success", "username": userName, "useremail": useremail, "userid": userid})
         else:
             return jsonify({"status": "Wrong Password"})

@@ -234,9 +234,34 @@ def getMySuspect():
     try:
         getMySuspectQuery = f"Select * from suspects where userid={userId}"
         suspects = convertTobase64(getMySuspectQuery)
+        # print(*suspects,sep='\n')
         return jsonify({"status": "success", "suspects": suspects})
     except Exception as mysuspectError:
         return jsonify({"status": "fail", "err": str(mysuspectError)})
+
+
+@app.route('/getsuspectdetails',methods=['GET'])
+def getsuspectDetails():
+    suspectId = request.args.get('suspectid',0)
+    if suspectId==0:
+        return jsonify({'status:invalid','suspectdetails'})
+    try:
+
+        return jsonify({
+            'status':'success',
+            'suspectdetails':[[ '12.05.2023','Salem','Latitude','Longitude','map' ],
+            ['12.05.2023','Salem','Latitude','Longitude','map' ],
+            ['12.05.2023','Salem','Latitude','Longitude','map' ],
+            ['12.05.2023','Salem','Latitude','Longitude','map' ],
+            ['12.05.2023','Salem','Latitude','Longitude','map' ],
+            ['12.05.2023','Salem','Latitude','Longitude','map' ],
+            ['12.05.2023','Salem','Latitude','Longitude','map' ],
+            ['12.05.2023','Salem','Latitude','Longitude','map' ],
+        ['12.05.2023','Salem','Latitude','Longitude','map' ],
+        ['12.05.2023','Salem','Latitude','Longitude','map' ]]
+        })
+    except:
+        pass
 
 @app.route('/getdatabase',methods=['GET'])
 def getDataBase():

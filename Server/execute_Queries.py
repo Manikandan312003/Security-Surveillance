@@ -41,7 +41,7 @@ def read_query(query="""Select *from officers;
 
 
 # Describe the table
-# print(*read_query("PRAGMA table_info(suspects);"),sep='\n')
+print(*read_query("PRAGMA table_info(suspects);"),sep='\n')
 
 
 import sqlite3
@@ -69,11 +69,11 @@ def changePasswordToSecure():
 def verifyPassword(stored_password, provided_password):
     return bcrypt.checkpw(provided_password.encode('utf-8'), stored_password)
 
-password = "mani#2003"
-hashed_password = hashPassword(password)
-
-print(type(hashed_password))
-if verifyPassword(hashed_password, 'mani#12003'):
-    print("Password is correct")
-else:
-    print("Password is incorrect")
+# password = "mani#2003"
+# hashed_password = hashPassword(password)
+#
+# print(type(hashed_password))
+# if verifyPassword(hashed_password, 'mani#12003'):
+#     print("Password is correct")
+# else:
+#     print("Password is incorrect")

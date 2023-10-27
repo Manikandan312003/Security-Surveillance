@@ -36,15 +36,33 @@
   overflow-y: hidden;
 }
 
-mat-drawer-content {
 
-  overflow-y: hidden;
-  overflow-x: hidden;
   
+
+/* Fill the entire page */
+.fill-container {
+  height: 100vh;
 }
+
+/* Customize the drawer */
 .custom-drawer {
-  background-color: var(--primary);
-  text-align: center;
+  /* Adjust the width as needed */
+  width: 250px;
+  
+  /* Other styles */
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
 }
 
 
+/* Customize the main content */
+mat-drawer-content {
+  /* This will fill the remaining space in the container */
+  flex: 1;
+  /* background-color: #f2f2f2;
+  padding: 20px; */
+  
+  /* overflow-y: hidden;
+  overflow-x: hidden; */
+}

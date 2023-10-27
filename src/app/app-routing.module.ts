@@ -16,7 +16,7 @@ const routes: Routes = [
   {path:'home',component:FileuploadComponent,title:'home'},
   {path:'suspect/:id',component:SuspectdetailsComponent,title:'SuspectDetails'},
   {path:'suspectdetail',component:SuspectdetailsComponent,title:'SuspectDetails'},
-  {path: '**', redirectTo: '/login', pathMatch: 'full' ,title:'login'}
+  // {path: '**', redirectTo: '/login', pathMatch: 'full' ,title:'login'}
 ];
 
 @NgModule({

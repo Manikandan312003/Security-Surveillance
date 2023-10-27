@@ -9,7 +9,9 @@
         *ngFor="let suspect of suspects;let i=index" >
         <mat-card class="mat-elevation-z4">
           <mat-card-header>
-            <mat-card-title>Suspect {{suspect[0]}}</mat-card-title>
+            <mat-card-title>Suspect {{suspect[0]}}
+              <a mat-icon-button routerLink="/suspect/{{suspect[0]}}" ><mat-icon>visibility</mat-icon></a>
+            </mat-card-title>
           </mat-card-header>
           <img mat-card-image
             src={{suspect[1]}}

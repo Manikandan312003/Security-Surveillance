@@ -50,11 +50,11 @@ export class SuspectdetailsComponent {
                 var css=''
                 for (let i = 0; i < (this.suspectDetails?.length || 0); i++) {
 
-                    css+='.container:nth-child('+(i+1)+'){animation-delay: '+i+'s; }'
+                    css+='.container:nth-child('+(i+1)+'){animation-delay: '+(i*0.5)+'s; }'
                   
 
                 }
-                css+="\n.timeline::after{content: '';position: absolute;width: 6px;height: 100%;background: #fff;top: 0;margin-top: 1%;margin-bottom: 1%;left: 50%;margin-left: -3px;z-index: 2;animation: moveline "+this.suspectDetails.length+"s linear forwards;}  @keyframes moveline {0%{height: 0;}100%{height: 100%;}}"
+                css+="\n.timeline::after{content: '';position: absolute;width: 6px;height: 100%;background: #fff;top: 0;margin-top: 1%;margin-bottom: 1%;left: 50%;margin-left: -3px;z-index: 2;animation: moveline "+(this.suspectDetails.length*0.5)+"s linear forwards;}  @keyframes moveline {0%{height: 0;}100%{height: 100%;}}"
                 styleElement.textContent=css
                 document.head.appendChild(styleElement)
               }

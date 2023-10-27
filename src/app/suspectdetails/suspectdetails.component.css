@@ -26,7 +26,7 @@
   padding: 10px 50px;
   position: relative;
   width: 50%;
-  animation: movedown 1s linear forwards;
+  animation: movedown 0.5s linear forwards;
   opacity: 0;
 }
 @keyframes movedown {

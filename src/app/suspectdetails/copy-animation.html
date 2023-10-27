@@ -1,0 +1,29 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div *ngIf="!suspectId" >
+<mat-form-field class="example-full-width" >
+<span matPrefix> </span>
+<input type="number"  matInput class="hide-number-arrows" placeholder="Search" name= "search" [(ngModel)]= "suspectId">
+<button matSuffix mat-button><mat-icon >search</mat-icon></button>
+</mat-form-field>
+<br/>
+{{suspectId}}
+</div>
+<div class="suspectdetails">
+    <div  class="timeline" style="margin-top: 0;">
+        <div class="container" *ngFor="let suspect of suspectDetails; let i = index">
+            <div class="text-box" [ngClass]="{ 'left-container': i % 2 === 0, 'right-container': i % 2 === 1 }">
+           
+            <!-- <div class="text-box"> -->
+                <h2>Date: {{suspect[0]}}</h2>
+                <h3> <mat-icon>location_on</mat-icon> Location: {{suspect[1]}}</h3>
+                <small>Latitude: {{suspect[2]}}</small><br>
+                <small>Longitude: {{suspect[3]}}</small>
+                <p><mat-icon>directions</mat-icon> Location:{{suspect[4]}}</p>
+                <span class="left-container-arrow"></span>
+            </div>
+        </div>
+        
+    </div>
+</div>

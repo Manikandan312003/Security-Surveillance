@@ -1,0 +1,50 @@
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.navbar-title {
+  font-size: 24px;
+}
+
+.navbar-logout {
+  flex: 1 1 auto;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.navbar-logout:hover {
+  background-color: #d32f2f;
+}
+.example-container {
+
+  overflow-y: hidden;
+}
+
+mat-drawer-content {
+
+  overflow-y: hidden;
+  overflow-x: hidden;
+  
+}
+.custom-drawer {
+  background-color: var(--primary);
+  text-align: center;
+}
+
+

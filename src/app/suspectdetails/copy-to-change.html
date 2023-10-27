@@ -1,0 +1,111 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div *ngIf="!suspectId" >
+<mat-form-field class="example-full-width" >
+<span matPrefix> </span>
+<input type="number"  matInput class="hide-number-arrows" placeholder="Search" name= "search" [(ngModel)]= "suspectId">
+<button matSuffix mat-button><mat-icon >search</mat-icon></button>
+</mat-form-field>
+<br/>
+{{suspectId}}
+</div>
+<body>
+
+    <div class="timeline">
+        
+        <div class="container left-container" ng-class="{container left-container: subCategory}">
+            <div class="text-box">
+                <h2>Python</h2>
+                <small>2018 - 2019</small>
+                <p>The ece students are participating hackathon so kindly provide OD for the students I have mentioned in next divs</p>
+                <span class="left-container-arrow"></span>
+            </div>
+        </div>
+
+        <div class="container right-container" ng-class="{container right-container: subCategory}">
+            <div class="text-box">
+                <h2>Java</h2>
+                <small>2018 - 2019</small>
+                <p>kindly provide OD for the student Ragu...</p>
+                <span class="right-container-arrow"></span>
+            </div>
+        </div>
+
+        <div class="container left-container" ng-class="{container left-container: subCategory}">
+            <div class="text-box">
+                <h2>Mysql</h2>
+                <small>2018 - 2019</small>
+                <p>kindly provide OD for the student Lokesh...</p>
+                <span class="left-container-arrow"></span>
+            </div>
+        </div>
+
+        <div class="container right-container" ng-class="{container right-container: subCategory}">
+            <div class="text-box">
+                <h2>C script</h2>
+                <small>2018 - 2019</small>
+                <p>kindly provide OD for the student Karthik...</p>
+                <span class="right-container-arrow"></span>
+            </div>
+        </div>
+
+        <div class="container left-container" ng-class="{container left-container: subCategory}">
+            <div class="text-box">
+                <h2>Front end development</h2>
+                <small>2018 - 2019</small>
+                <p>kindly provide OD for the student Manikandan...</p>
+                <span class="left-container-arrow"></span>
+            </div>
+        </div>
+
+        <div class="container right-container" ng-class="{container right-container: subCategory}">
+            <div class="text-box">
+                <h2>ECE</h2>
+                <small>2018 - 2019</small>
+                <p>kindly provide OD for the student Nitish...</p>
+                <span class="right-container-arrow"></span>
+            </div>
+        </div>
+
+        <div class="container left-container" ng-class="{container left-container: subCategory}">
+            <div class="text-box">
+                <h2>ECE-B</h2>
+                <small>2018 - 2019</small>
+                <p>kindly provide OD for the student Dhanush...</p>
+                <span class="left-container-arrow"></span>
+            </div>
+        </div>
+
+    </div>
+</body>
+<!-- 
+<div class="suspectdetails">
+    <div class="timeline">
+
+        <ul  *ngFor="let suspect of suspectDetails;let i=index">
+        
+        
+            <div class="container left-container" ng-class="{container left-container: subCategory}">
+                <div class="text-box">
+                    <h2>Python</h2>
+                    <small>2018 - 2019</small>
+                    <p>The ece students are participating hackathon so kindly provide OD for the students I have mentioned in next divs</p>
+                    <span class="left-container-arrow"></span>
+                </div>
+            </div>
+
+            <div class="container right-container" ng-class="{container right-container: subCategory}">
+                <div class="text-box">
+                    <h2>Java</h2>
+                    <small>2018 - 2019</small>
+                    <p>kindly provide OD for the student Ragu...</p>
+                    <span class="right-container-arrow"></span>
+                </div>
+            </div>
+         
+        </ul>
+</div>
+  
+
+</div> -->

@@ -6,6 +6,7 @@ import { ServiceService } from '../services/service.service';
 
 @Component({
   selector: 'app-allsuspect',
+  // templateUrl: './allsuspect.component.html',
   templateUrl: './allsuspect.component.html',
   styleUrls: ['./allsuspect.component.css']
 })

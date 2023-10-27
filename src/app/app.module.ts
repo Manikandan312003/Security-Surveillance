@@ -30,16 +30,23 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSliderModule} from '@angular/material/slider';
 
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import {MatRippleModule} from '@angular/material/core';
+import { SuspectdetailsComponent } from './suspectdetails/suspectdetails.component';
+// import { suspectdetailComponent } from './suspectdetail/suspectdetail.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     FileuploadComponent,
     MysuspectComponent,
-    AllsuspectComponent
+    AllsuspectComponent,
+    SuspectdetailsComponent,
+    // suspectdetailComponent
   ],
   imports: [
-    MatSliderModule,
+    MatSliderModule,MatSidenavModule,MatListModule,MatRippleModule,
     BrowserModule,MatFormFieldModule,MatInputModule,MatCardModule,MatTooltipModule,MatDividerModule,FlexLayoutModule,MatToolbarModule,
     AppRoutingModule,MatButtonModule,MatGridListModule,HttpClientModule,MatIconModule,MatDialogModule,BrowserAnimationsModule,FormsModule,
     ToastrModule.forRoot(

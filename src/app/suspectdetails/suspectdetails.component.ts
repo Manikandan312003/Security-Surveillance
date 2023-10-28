@@ -48,6 +48,7 @@ export class SuspectdetailsComponent {
               if (this.suspectDetails) {
                 const styleElement = document.createElement('style');
                 var css=''
+                
                 for (let i = 0; i < (this.suspectDetails?.length || 0); i++) {
 
                     css+='.container:nth-child('+(i+1)+'){animation-delay: '+(i*0.5)+'s; }'

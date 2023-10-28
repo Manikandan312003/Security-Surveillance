@@ -10,14 +10,15 @@
   </button>
   
    -->
-   <mat-drawer-container class="fill-container" [hasBackdrop]="false">
-    <mat-drawer #drawer mode="side" class="custom-drawer">
+   <mat-drawer-container class="fill-container" [hasBackdrop]="true">
+    <mat-drawer #drawer mode="side"  class="custom-drawer-style">
       <mat-card>
-        <mat-card-content class="custom-drawer">
-          <div class="custom-drawer"  ><button  mat-flat-button  routerLink="/home"><mat-icon>home</mat-icon>Home</button><br></div>
-          <div class="custom-drawer"  ><button  mat-flat-button  routerLink="/upload">Upload</button><br></div>
-          <div class="custom-drawer"  ><button  mat-flat-button  routerLink="/suspect">Suspects</button><br></div>
-          <div class="custom-drawer"  ><button  mat-flat-button  routerLink="/mysuspect">My-Suspects</button><br></div>
+        <mat-card-content class="custom-drawer-content">
+          <div class="custom-drawer-content"  ><button style="width: 100%;" mat-flat-button  routerLink="/home"><mat-icon>home</mat-icon>Home</button><br></div>
+          <div class="custom-drawer-content"  ><button style="width: 100%;" mat-flat-button  routerLink="/upload">Upload</button><br></div>
+          <div class="custom-drawer-content"  ><button style="width: 100%;" mat-flat-button  routerLink="/suspect">Suspects</button><br></div>
+          <div class="custom-drawer-content"  ><button style="width: 100%;" mat-flat-button  routerLink="/mysuspect">My-Suspects</button><br></div>
+          <div class="custom-drawer-content"  ><button style="width: 100%;" mat-flat-button  routerLink="/suspectdetail">Suspect Details</button><br></div>
         </mat-card-content>
       </mat-card>
     </mat-drawer>
@@ -33,7 +34,7 @@
       <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
         <mat-icon>favorite</mat-icon>
       </button> -->
-      <button mat-flat-button>Logout
+      <button mat-flat-button (click)="logout()">Logout
         <mat-icon
           aria-hidden="false"
           aria-label="logout icon"

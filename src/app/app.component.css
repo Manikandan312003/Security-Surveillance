@@ -37,11 +37,28 @@
 }
 
 
-  
+.custom-drawer-style {
+  width: 250px;
+  overflow-y: auto; /* Allow vertical scrolling if needed */
+  overflow-x: hidden; /* Hide horizontal scrolling */
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
 
 /* Fill the entire page */
 .fill-container {
   height: 100vh;
+}
+
+.custom-drawer-content{
+  /* width: 250px; */
+  
+  /* Other styles */
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
 }
 
 /* Customize the drawer */

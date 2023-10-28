@@ -10,6 +10,7 @@ export class ServiceService {
     var userid=localStorage.getItem('userId')
     if(userid!=null){
       this.loggedInUserId=parseInt(userid);
+      
       this.userLoggedIn=true;
     }
     else{
@@ -19,11 +20,11 @@ export class ServiceService {
   }
   ngOnInit() {
    
-
+      console.log('service',this.loggedInUserId)
   }
 
    userLoggedIn:boolean=false;
-   loggedInUserId:number=2;
+   loggedInUserId:number=0;
    backendUrl="http://127.0.0.1:5000";
 
    

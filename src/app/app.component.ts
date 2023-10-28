@@ -1,5 +1,5 @@
-import { MatSidenav } from '@angular/material/sidenav';
-import { Component,ViewChild } from '@angular/core';
+
+import { Component } from '@angular/core';
 import { ServiceService } from './services/service.service';
 import { Router } from '@angular/router';
 
@@ -12,14 +12,11 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
 
-  @ViewChild('sidenav') sidenav!: MatSidenav;
-logout() {
-    
-}
 
-shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(window.location.host);
+    
+
   title = 'SuspectTracker';
-  constructor(service:ServiceService,router:Router){
+  constructor(private service:ServiceService,private router:Router){
     console.log(window.location.pathname)
     console.log(service.loggedInUserId,service.userLoggedIn)
     if(!service.userLoggedIn){
@@ -31,8 +28,23 @@ shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(window.location.host
       }
     }
     
-    
-    
+  }
+  ngOnInit(){
+    console.log(this.service.userLoggedIn)
+    console.log('userid',localStorage.getItem('userId'))
+
+    // this.router.navigateByUrl('\login')
+    if(localStorage.getItem('userId')==null){
+        this.router.navigateByUrl('\login')
+    }
   }
 
+  logout() {
+        this.service.loggedInUserId=0;
+        this.service.userLoggedIn=false;
+        localStorage.clear()
+        this.router.navigateByUrl('\login')
+        location.reload();
+        
+  }
 }

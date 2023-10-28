@@ -1,4 +1,4 @@
-
+<div class="centered-div">
 <mat-form-field class="example-full-width">
   <mat-label>Name</mat-label>
   <input matInput placeholder="Enter Suspect Name" [(ngModel)]="name">
@@ -26,7 +26,7 @@
   <h2><span></span>{{photo.name}}</h2 > 
   </mat-card-header> 
   <mat-card-content> 
-    <img [src] ="photo?createObjectURL(photo):''" style="display: flex; width: 50%;"> 
+    <img [src] ="photo?createObjectURL(photo):''" style="display: flex; "> 
   </mat-card-content> 
   </mat-card> 
   
@@ -34,3 +34,4 @@
   </div>
 
 <button mat-raised-button [disabled]="uploading" (click)="upload()">Upload</button>
+</div>

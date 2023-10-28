@@ -18,7 +18,7 @@ export class LoginComponent {
 
   ngOnInit(){
     
-      console.log(this.service.userLoggedIn)
+      console.log('login',this.service.userLoggedIn)
       if(this.service.userLoggedIn==true){
         this.route.navigateByUrl('home')
         this.toast.success(''+localStorage.getItem('username'),"Welcome back ")
@@ -39,6 +39,8 @@ export class LoginComponent {
         localStorage.setItem("username",response?.['username'])
         localStorage.setItem("useremail",response?.['useremail'])
         this.service.userLoggedIn=true
+        console.log(response?.['userid'])
+        this.service.loggedInUserId=response?.['userid']
         this.route.navigateByUrl('home')
         this.toast.success("Login successfully","Welcome "+response?.['username'])
       }

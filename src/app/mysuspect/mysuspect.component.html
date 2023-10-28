@@ -12,9 +12,15 @@
         <mat-card class="mat-elevation-z4">
           <mat-card-header>
             <mat-card-title>Suspect {{suspect[0]}}
-                    <button  mat-icon-button (click)="deleteSuspect(suspect[0],suspect[2])"><mat-icon >delete</mat-icon></button >
-                    <button  mat-icon-button (click)="editsuspect(suspect[0],suspect[2],suspect[3],suspect[4],suspect[5],suspect[6],suspect[7])" ><mat-icon>edit</mat-icon></button>
-                    <a mat-icon-button routerLink="/suspect/{{suspect[0]}}" ><mat-icon>visibility</mat-icon></a>
+                    <button   matTooltip="Delete Suspect" mat-icon-button (click)="deleteSuspect(suspect[0],suspect[2])">
+                              <mat-icon >delete</mat-icon>
+                    </button >
+                    <button   matTooltip="Edit Suspect" mat-icon-button (click)="editsuspect(suspect[0],suspect[2],suspect[3],suspect[4],suspect[5],suspect[6],suspect[7])" >
+                              <mat-icon>edit</mat-icon>
+                    </button>
+                    <a        matTooltip="View Suspect Detail" mat-icon-button routerLink="/suspect/{{suspect[0]}}"  >
+                              <mat-icon>visibility</mat-icon>
+                    </a>
             </mat-card-title>
           </mat-card-header>
           <img mat-card-image

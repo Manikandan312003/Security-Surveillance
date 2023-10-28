@@ -4,7 +4,7 @@
 <div style="text-align: center;" >
 <mat-form-field class="example-full-width" >
 <span matPrefix> </span>
-<input type="number" width="70%" (keyup.enter)="getChangedSuspect(suspectId)"  matInput class="hide-number-arrows" placeholder="Search id" name= "search" [(ngModel)]= "suspectId">
+<input class="input" type="number" width="70%" (keyup.enter)="getChangedSuspect(suspectId)"  matInput class="hide-number-arrows" placeholder="Search id" name= "search" [(ngModel)]= "suspectId">
 <button matSuffix mat-button    (click)="getChangedSuspect(suspectId)"><mat-icon >search</mat-icon></button>
 </mat-form-field>
 <br/>
@@ -13,13 +13,25 @@
 <div class="suspectdetails">
     <div  class="timeline" >
         <div  *ngFor="let suspect of suspectDetails; let i = index"        [ngClass]="(i%2==0)?'container left-container':'container right-container'">
-            <div class="text-box" id="text-box" #textbox> 
+            <div *ngIf="i==0" class="text-box" >
+                
+                <h2>   Name: {{suspect[0]}}</h2>
+                <h3>   Reason:<span *ngIf="suspect[1]"> {{suspect[1]}}</span><span *ngIf="!suspect[1]">N/A</span> </h3>
+                <img [src]="'data:image/jpg;base64,'+suspect[2]">
+                
+                <span   [ngClass]="(i%2==0)?'left-container-arrow':'right-container-arrow'"></span>
+                
+            </div>
+            <div *ngIf="i!=0" class="text-box" id="text-box" style="max-width: 100%;" #textbox> 
                 <!-- <button mat-mini-fab>{{i+1}}</button> -->
-                 <h2>Date: {{suspect[0]}}</h2>
-                <h3> <mat-icon>location_on</mat-icon> Location: {{suspect[1]}}</h3>
-                <small>Latitude: {{suspect[2]}}</small><br>
-                <small>Longitude: {{suspect[3]}}</small>
-                <p><mat-icon>directions</mat-icon> Location:{{suspect[4]}}</p>
+                 <h2>   Date: {{suspect[0]}}</h2>
+                <h3 style="word-wrap: break-word;">     <mat-icon>location_on</mat-icon> Location: {{suspect[1]}}</h3>
+                <p><small style="word-wrap: break-word;"> Latitude: {{suspect[2]}}</small></p>
+                <p><small style="word-wrap: break-word;"> Longitude: {{suspect[3]}}</small></p>
+                <p style="word-wrap: break-word;">
+                    <a target="_blank" href="https://www.google.com/maps?q={{suspect[2]}},{{suspect[3]}}" matTooltip="View On Map">
+                        <mat-icon>directions</mat-icon > Go To Location{{suspect[4]}}</a>
+                    </p>
                 <span   [ngClass]="(i%2==0)?'left-container-arrow':'right-container-arrow'"></span>
       </div>
     </div>

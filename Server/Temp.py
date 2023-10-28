@@ -51,3 +51,21 @@ dataFormat1 = {'id':2,
                       'suspectPhoto':base64.b64encode(main.convertToBinaryData('image1.jpeg')).decode('utf-8')
                       }
 """
+
+# import main
+# print(main.load_data())
+
+import datetime
+print(datetime.date.today())
+
+"""
+[[ '12.05.2023','Salem','Latitude','Longitude','map' ],
+            ['12.05.2023','Salem','Latitude','Longitude','map' ],
+            ['12.05.2023','Salem','Latitude','Longitude','map' ],
+            ['12.05.2023','Salem','Latitude','Longitude','map' ],
+            ['12.05.2023','Salem','Latitude','Longitude','map' ],
+            ['12.05.2023','Salem','Latitude','Longitude','map' ],
+            ['12.05.2023','Salem','Latitude','Longitude','map' ],
+            ['12.05.2023','Salem','Latitude','Longitude','map' ],
+        ['12.05.2023','Salem','Latitude','Longitude','map' ],
+        ['12.05.2023','Salem','Latitude','Longitude','map' ]]"""

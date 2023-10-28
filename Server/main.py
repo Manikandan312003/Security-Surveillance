@@ -5,7 +5,7 @@ from flask import Flask
 from flask import request, jsonify, send_file
 from flask_cors import CORS
 import base64
-
+import datetime
 app = Flask(__name__)
 CORS(app)
 
@@ -192,11 +192,18 @@ def editSuspect():
         latitude = request.args.get("latitude","")
         longitude = request.args.get("longitude","")
 
+        query = f'select location,latitude,longitude from suspects where id={suspectId}'
+        details = read_query(query,makeConnection())
+        if details:
+            if (location,latitude,longitude)!=details[0]:
+                addSuspectDetails(suspectId,*details[0])
+
         editQuery = f'Update suspects set name="{name}",reason="{reason}",location ="{location}",latitude="{latitude}",longitude="{longitude}" where id="{suspectId}" and userid="{userId}";'
         execute_query(editQuery, connection=makeConnection())
         return jsonify({'status': 'success'})
 
     except Exception as err:
+        print(err)
         return jsonify({"status": "err", "err": str(err)})
 
 
@@ -240,25 +247,58 @@ def getMySuspect():
         return jsonify({"status": "fail", "err": str(mysuspectError)})
 
 
+#GET Suspect Details
+def load_data():
+    with open('securitysurveillance.json', 'r') as file:
+        data = json.load(file)
+    return data
+
+def save_data(data):
+    with open('securitysurveillance.json', 'w') as file:
+        json.dump(data, file, indent=4)
+
+
+def checkId(id):
+    suspectDetails = load_data()
+    for suspect in suspectDetails:
+        if id == suspect['id']:
+            return True
+    return False
+
+
+def addSuspectDetails(id,location,latitude,longitude):
+    try:
+        locDet = [str(datetime.date.today()),location,latitude,longitude]
+        suspectDetails = load_data()
+        if id in suspectDetails:
+            suspectDetails[id].insert(0,locDet)
+            return True
+        else:
+
+            userDet = convertTobase64(f'select name,image,reason from suspects where id={id}')[0]
+            suspectDetails[id] = [[userDet[0],userDet[2],userDet[1]],
+                                  locDet]
+            save_data(suspectDetails)
+            return True
+    except Exception as addException:
+        print('Err',addException)
+        return False
+
+
+
 @app.route('/getsuspectdetails',methods=['GET'])
 def getsuspectDetails():
     suspectId = request.args.get('suspectid',0)
     if suspectId==0:
         return jsonify({'status:invalid','suspectdetails'})
     try:
-
+        suspectDetail = load_data().get(suspectId,0)
+        if suspectDetail:
+            print(suspectDetail)
+            return jsonify({'status': 'success', 'suspectdetails': suspectDetail})
         return jsonify({
-            'status':'success',
-            'suspectdetails':[[ '12.05.2023','Salem','Latitude','Longitude','map' ],
-            ['12.05.2023','Salem','Latitude','Longitude','map' ],
-            ['12.05.2023','Salem','Latitude','Longitude','map' ],
-            ['12.05.2023','Salem','Latitude','Longitude','map' ],
-            ['12.05.2023','Salem','Latitude','Longitude','map' ],
-            ['12.05.2023','Salem','Latitude','Longitude','map' ],
-            ['12.05.2023','Salem','Latitude','Longitude','map' ],
-            ['12.05.2023','Salem','Latitude','Longitude','map' ],
-        ['12.05.2023','Salem','Latitude','Longitude','map' ],
-        ['12.05.2023','Salem','Latitude','Longitude','map' ]]
+            'status':'no history',
+            'suspectdetails':''
         })
     except:
         pass

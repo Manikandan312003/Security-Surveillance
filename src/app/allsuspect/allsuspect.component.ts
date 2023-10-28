@@ -24,7 +24,7 @@ export class AllsuspectComponent implements OnInit {
   }
 
   getSuspects() {
-    const url = this.service.backendUrl+'/getallsuspect';
+    const url = this.service.backendUrl+'getallsuspect';
     console.log(url)
 
     this.http.get<{ suspects: any[] }>(url).subscribe((response) => {

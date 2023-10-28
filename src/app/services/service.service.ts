@@ -25,7 +25,8 @@ export class ServiceService {
 
    userLoggedIn:boolean=false;
    loggedInUserId:number=0;
-   backendUrl="http://127.0.0.1:5000";
+  //  backendUrl="http://127.0.0.1:5000";
+    backendUrl="https://flask-delta-one.vercel.app/";
 
    
 }

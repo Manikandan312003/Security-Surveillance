@@ -65,7 +65,7 @@ export class MysuspectComponent {
       dialogRef.afterClosed().subscribe((response)=>{
         argument.status=true
         if((response.status==true)  && (!this.areObjectsEqual(argument,response))){
-          const url = 'http://127.0.0.1:5000/editsuspect?suspectid='+response.id+'&name='+response.name+'&reason='+response.reason+'&location='+response.location+'&userid='+userid+"&latitude="+response.latitude+"&longitude="+response.longitude;
+          const url = this.service.backendUrl+'editsuspect?suspectid='+response.id+'&name='+response.name+'&reason='+response.reason+'&location='+response.location+'&userid='+userid+"&latitude="+response.latitude+"&longitude="+response.longitude;
           this.http.get<{status:any}>(url).subscribe((response)=>{
             if(response.status=="success"){
           this.getSuspects();
@@ -83,7 +83,7 @@ export class MysuspectComponent {
 
   getSuspects() {
 
-    const url = 'http://127.0.0.1:5000/getmysuspect'+'?userid='+this.service.loggedInUserId;
+    const url = this.service.backendUrl+'getmysuspect'+'?userid='+this.service.loggedInUserId;
 
     this.http.get<{ suspects: any[] }>(url).subscribe((response) => {
       this.suspects = response.suspects;

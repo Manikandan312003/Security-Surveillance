@@ -40,7 +40,7 @@ export class SuspectdetailsComponent {
     }
     getSuspectDetails(){
       
-        const url = 'http://127.0.0.1:5000/getsuspectdetails'+'?suspectid='+this.suspectId;
+        const url = this.service.backendUrl+'getsuspectdetails'+'?suspectid='+this.suspectId;
         this.http.get<{status:string,suspectdetails:any}>(url).subscribe(
           (res)=>{
             if(res.status=='success'){

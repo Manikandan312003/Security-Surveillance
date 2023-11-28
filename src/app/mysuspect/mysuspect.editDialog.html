@@ -4,10 +4,28 @@
   overflow: hidden;
   align-content: center;
   align-items: center;
+  
 }
-</style>
+/* Center-align the MatDialog content */
+/* Center-align the MatDialog content and keep the title on the left */
+.mat-dialog-container {
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+}
 
-<h1  mat-dialog-title>Update Suspect {{data.id}}</h1>
+/* Adjust the title and content alignment within the dialog */
+
+
+.mat-dialog-content {
+   align-items: center;
+   align-items: center;
+}
+
+
+</style>
+<div mat-dialog-container class="mat-dialog-container">
+<h1   mat-dialog-title>Update Suspect {{data.id}}</h1>
     <div mat-dialog-content> 
       <p>
           <mat-form-field>
@@ -33,7 +51,10 @@
       </p>
     </div>
 
-  
+</div>
+
+
+
 <style>
   h1{text-align: center;}
 </style>

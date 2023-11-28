@@ -29,7 +29,7 @@ export class LoginComponent {
     password:string='';
   verify(){
     // console.log('username',this.username,'\n\npassword',this.password)
-    var url=this.service.backendUrl+'/check?useremail='+this.username+'&password='+this.password;
+    var url=this.service.backendUrl+'check?useremail='+this.username+'&password='+this.password;
     this.http.get<{
       [x: string]: any;status:any
 }>(url).subscribe((response)=>{

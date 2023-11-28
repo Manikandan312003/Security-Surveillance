@@ -34,6 +34,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import {MatRippleModule} from '@angular/material/core';
 import { SuspectdetailsComponent } from './suspectdetails/suspectdetails.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 // import { suspectdetailComponent } from './suspectdetail/suspectdetail.component';
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { SuspectdetailsComponent } from './suspectdetails/suspectdetails.compone
     MysuspectComponent,
     AllsuspectComponent,
     SuspectdetailsComponent,
+    ConfirmationDialogComponent,
+    EditDialogComponent,
     // suspectdetailComponent
   ],
   imports: [

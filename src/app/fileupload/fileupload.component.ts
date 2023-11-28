@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ServiceService } from '../services/service.service';
 import { ToastrService } from 'ngx-toastr';
 import { timeInterval, timeout } from 'rxjs';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-fileupload',
@@ -60,12 +61,18 @@ export class FileuploadComponent {
       uploadSuspect.append("name",this.name);
       uploadSuspect.append("reason",this.reason);
       uploadSuspect.append('userid',''+this.service.loggedInUserId)
-      var url = this.service.backendUrl+"/uploadsuspect";
+      var url = this.service.backendUrl+"uploadsuspect";
       this.http.post<{status:any}>(url,uploadSuspect).subscribe(
         (response)=>{
           if(response.status=='success'){
             // alert("Suspect Details Uploaded");
-            this.toast.success(response.status,'Uploaded Successfully')
+            this.toast.success("<a href='/suspect'>Uploaded Successfully</a>",response.status,{
+              enableHtml:true,
+              closeButton:true,
+              disableTimeOut:true
+            })
+
+            
             this.freeVariable()
             
           }

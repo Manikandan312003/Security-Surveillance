@@ -1,14 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit,Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import {  DomSanitizer } from '@angular/platform-browser';
 import { ServiceService } from '../services/service.service';
-import { MatDialogRef, MAT_DIALOG_DATA,MatDialog } from '@angular/material/dialog';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {FormsModule} from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+
 import { ToastrService } from 'ngx-toastr';
-import {MatCardModule} from '@angular/material/card';
+
+import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-mysuspect',
@@ -19,7 +18,12 @@ export class MysuspectComponent {
 
   suspects: any[] = [];
 
-  constructor(private http: HttpClient, private sanitizer: DomSanitizer,private service:ServiceService,public dialog:MatDialog,private toast:ToastrService) { }
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer,private service:ServiceService,public dialog:MatDialog,private toast:ToastrService) {
+      
+    
+
+    
+   }
 
   ngOnInit() {
     this.getSuspects();
@@ -30,14 +34,15 @@ export class MysuspectComponent {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result === true) {
-              const url = this.service.backendUrl+'/deletesuspect?suspectid='+id+'&userid='+this.service.loggedInUserId;
+              const url = this.service.backendUrl+'deletesuspect?suspectid='+id+'&userid='+this.service.loggedInUserId;
       this.http.get<{status:any}>(url).subscribe((response)=>{
         if(response.status=="success"){
           this.getSuspects();
           this.toast.success('Suspect Id:'+id+' Deleted',"Deleted Successfully");
 
         }});
-}});}
+}});
+}
 
  areObjectsEqual(obj1: any, obj2: any): boolean {
   const keys1 = Object.keys(obj1);
@@ -103,67 +108,3 @@ export class MysuspectComponent {
 
 }
 
-
-//Confirmation
-export interface deleteSuspectinfo {
-  id: number;
-  name: string;
-}
-
-@Component({
-  selector: 'confirmation-dialog',
-  templateUrl: "./mysuspect.deletdialog.html",
-  styleUrls: ['./mysuspect.component.css'],
-  standalone:true,
-  imports:[MatButtonModule]
-})
-export class ConfirmationDialogComponent {
-  constructor(
-    public dialogRef: MatDialogRef<ConfirmationDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: deleteSuspectinfo
-  ) {}
-
-  confirmDeletion(): void {
-    this.dialogRef.close(true);
-  }
-
-  cancelDeletion(): void {
-    this.dialogRef.close(false); 
-  }
-}
-
-//Edit
-export interface editSuspectinfo {
-  id:number;
-  name:string;
-  reason:string;
-  location:string;
-  status:boolean;
-  latitude:number;
-  longitude:number;
-}
-
-@Component({
-  selector: 'edit-dialog',
-  templateUrl: "./mysuspect.editDialog.html",
-  styleUrls: ['./mysuspect.component.css'],
-  standalone:true,
-  imports:[MatButtonModule,MatInputModule,
-    MatFormFieldModule,FormsModule,MatCardModule]
-})
-export class EditDialogComponent {
-  constructor(
-    public dialogRef: MatDialogRef<EditDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: editSuspectinfo
-  ) {}
-
-  confirmEdit(): void {
-    console.log(this.data);
-    this.data.status=true;
-    this.dialogRef.close(this.data);
-  }
-
-  cancelEdit(): void {
-    this.dialogRef.close(this.data); 
-  }
-}

@@ -1,0 +1,53 @@
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.grid-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .grid-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+</style>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+</head>
+<body>
+  <div class="grid-container">
+    <div class="grid-item">
+      <img src="../assets/images/security.jpg" alt="Image 1">
+      <h3>Image 1</h3>
+      <p>Classification: Class A</p>
+      <p>Location: City A</p>
+      <p>Latitude: 40.7128° N</p>
+      <p>Longitude: -74.0060° W</p>
+    </div>
+    <div class="grid-item">
+      <img src="../assets/images/security.jpg" alt="Image 2">
+      <h3>Image 2</h3>
+      <p>Classification: Class B</p>
+      <p>Location: City B</p>
+      <p>Latitude: 34.0522° N</p>
+      <p>Longitude: -118.2437° W</p>
+    </div>
+    
+  </div>
+</body>
+</html>

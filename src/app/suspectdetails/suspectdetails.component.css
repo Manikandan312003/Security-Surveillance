@@ -39,7 +39,14 @@
 
 
 
+.text-box-inside>*{
+    display: inline-block;
+  max-width: 100%;
+  white-space: normal;
+}
+
 .text-box{
+  max-width: 100%;
   padding: 20px 30px;
   background: #fff;
   position: relative;

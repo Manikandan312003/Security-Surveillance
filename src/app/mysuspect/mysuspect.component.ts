@@ -66,7 +66,12 @@ export class MysuspectComponent {
     editsuspect(id:number,name:string,reason:string,userid:string,location:string,latitude:number,longitude:number){
       const  argument = {id:id,name:name,reason:reason,location:location,latitude:latitude,longitude:longitude,status:false};
       const argCopy = JSON.parse(JSON.stringify(argument));
-      const dialogRef = this.dialog.open(EditDialogComponent,{data:argCopy,panelClass: 'custom-modalbox',width:'30%'});
+      const dialogRef = this.dialog.open(EditDialogComponent,{data:argCopy,
+        panelClass: 'custom-modalbox' ,
+        maxHeight:'90vh'
+        
+      
+      });
       dialogRef.afterClosed().subscribe((response)=>{
         argument.status=true
         if((response.status==true)  && (!this.areObjectsEqual(argument,response))){

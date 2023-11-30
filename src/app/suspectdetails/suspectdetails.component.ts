@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
+
 
 @Component({
   selector: 'app-suspectdetails',
@@ -13,7 +16,7 @@ export class SuspectdetailsComponent {
   suspectId=0;
   suspectDetails=[];
   noOfDetails=0;
-  constructor(private route: ActivatedRoute,private service:ServiceService, private http:HttpClient,private router:Router) {}
+  constructor(private route: ActivatedRoute,private service:ServiceService, private http:HttpClient,private router:Router,private toast:ToastrService) {}
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -64,7 +67,11 @@ export class SuspectdetailsComponent {
               
             }
             else{
-              alert(res.status)
+              this.toast.error(res.status,'Error',{
+                positionClass:'toast-top-center',
+              })
+              this.suspectDetails=[]
+              // alert(res.status)
             }
             
         })

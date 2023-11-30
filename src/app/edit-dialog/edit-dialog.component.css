@@ -1,0 +1,19 @@
+/* Disable overflow for the dialog */
+.mat-dialog-container {
+    overflow: hidden;
+  }
+  
+  /* Disable overflow for the dialog content */
+  .mat-dialog-content {
+    overflow: hidden;
+  }
+  
+h1{text-align: center;}
+
+
+mat-dialog-content{
+    max-height: none; /* or a specific value */
+    overflow: hidden; 
+  flex-direction: column; /* or row based on your layout */
+  align-items: center;
+}

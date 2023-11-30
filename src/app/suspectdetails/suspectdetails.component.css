@@ -4,10 +4,7 @@
   -webkit-appearance: none;
   margin: 0; /* Removes the arrows in Safari */
 }
-.hide-number-arrows {
-  /* Remove any other styles or behavior you don't want */
-  -moz-appearance: textfield; /* Removes the arrows in Firefox */
-}
+
 *{
   margin: 0;
   padding: 0;
@@ -39,6 +36,8 @@
       transform: translateY(0px);
   }
 }
+
+
 
 .text-box{
   padding: 20px 30px;

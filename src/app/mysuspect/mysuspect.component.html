@@ -12,8 +12,8 @@
         fxFlex.sm="33%"
         *ngFor="let suspect of suspects;let i=index" >
         <mat-card class="mat-elevation-z4">
-          <mat-card-header>
-            <mat-card-title>Suspect {{suspect[0]}}
+          <mat-card-header >
+            <mat-card-title >Suspect {{suspect[0]}}
                     <button   matTooltip="Delete Suspect" mat-icon-button (click)="deleteSuspect(suspect[0],suspect[2])">
                               <mat-icon >delete</mat-icon>
                     </button >

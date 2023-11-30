@@ -1,7 +1,6 @@
-  <mat-dialog-content align="center">
-  <h1   mat-dialog-title>Update Suspect {{data.id}}</h1>
-      <div mat-dialog-content> 
-        <p>
+  <mat-dialog-content align="center" style="margin-left: 20px;margin-right: 20px;">
+  <h1   mat-dialog-title><span style="color: red;">Suspect</span>:{{data.name}}</h1>
+
             <mat-form-field>
               <mat-label  >Name</mat-label>
               <input matInput [(ngModel)]="data.name">
@@ -19,10 +18,7 @@
           <mat-form-field>
               <mat-label  >Longitude</mat-label>
               <input matInput [(ngModel)]="data.longitude"></mat-form-field>
-            </p>
-          </div>
-      
-          <mat-dialog-content>
+        </mat-dialog-content>
             <mat-dialog-actions align="center">
           <button mat-raised-button color="primary" (click)="confirmEdit()"> Save</button>
           <button mat-raised-button color="primary" (click)="cancelEdit()"> Cancel</button>
@@ -30,7 +26,4 @@
   
   
   
-  <style>
-    h1{text-align: center;}
-  </style>
   

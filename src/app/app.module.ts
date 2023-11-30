@@ -36,6 +36,7 @@ import {MatRippleModule} from '@angular/material/core';
 import { SuspectdetailsComponent } from './suspectdetails/suspectdetails.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
+
 // import { suspectdetailComponent } from './suspectdetail/suspectdetail.component';
 @NgModule({
   declarations: [
@@ -55,7 +56,7 @@ import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
     AppRoutingModule,MatButtonModule,MatGridListModule,HttpClientModule,MatIconModule,MatDialogModule,BrowserAnimationsModule,FormsModule,
     ToastrModule.forRoot(
       {positionClass:'toast-top-center',
-      maxOpened:5,
+      maxOpened:3,
     
   }
     )

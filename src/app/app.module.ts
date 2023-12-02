@@ -36,6 +36,7 @@ import {MatRippleModule} from '@angular/material/core';
 import { SuspectdetailsComponent } from './suspectdetails/suspectdetails.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
+import { ImagedialogComponent } from './imagedialog/imagedialog.component';
 
 // import { suspectdetailComponent } from './suspectdetail/suspectdetail.component';
 @NgModule({
@@ -48,6 +49,7 @@ import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
     SuspectdetailsComponent,
     ConfirmationDialogComponent,
     EditDialogComponent,
+    ImagedialogComponent,
     // suspectdetailComponent
   ],
   imports: [

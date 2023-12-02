@@ -36,7 +36,30 @@
       transform: translateY(0px);
   }
 }
-
+@media (max-width: 600px) {
+  .container {
+    padding: 25px;
+  }
+  .container h1{
+    font-size: 4.5vw;
+  }
+  .container h2,
+  .container h3 {
+    font-size: 3.5vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  .container {
+    padding: 25px;
+  }
+  .container h1{
+    font-size: 4vw;
+  }
+  .container h2,
+  .container h3 {
+    font-size: 3vw;
+  }
+}
 
 
 .text-box-inside>*{
@@ -53,6 +76,7 @@
   border-radius: 6px;
   font-size: 15px;
 }
+
 .left-container{
   left: 0;
 }
@@ -71,6 +95,10 @@
 .text-box h2{
   font-weight: 600;
 }
+.text-box h1{
+  font-weight: 600;
+}
+
 .text-box small{
   display: inline-block;
   margin-bottom: 15px;

@@ -1,37 +1,28 @@
-<div class="centered-div">
-<mat-form-field class="example-full-width">
-  <mat-label>Name</mat-label>
-  <input matInput placeholder="Enter Suspect Name" [(ngModel)]="name">
-</mat-form-field>
-<br>
-<mat-form-field class="example-full-width">
-  <mat-label>Reason</mat-label>
-  <input matInput placeholder="Enter reason or Suspect Details" [(ngModel)]="reason">
-</mat-form-field>
+<div class="container" (drop)="onFileDropped($event)" (drag)="onFileDropped($event)" (dragover)="onDragOver($event)" (dragleave)="onDragLeave($event)">
+  <mat-card class="card">
+    <h1 class="title">File Upload</h1>
+    <form class="form"#suspectupload="ngForm"  novalidate>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Enter Suspect name" name="name" [(ngModel)]="name" required>
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Reason</mat-label>
+        <textarea matInput placeholder="Enter reason or Suspect Details" name="reason" [(ngModel)]="reason" class="no-resize-textarea" required></textarea>
+      </mat-form-field>
 
-<br>
+      <div  [ngClass]="{'drag-over':isDragOver}" class="file-section">
+         <label class="file-input">
+          <span>Choose a file</span>
+          <input type="file" name="file" (change)="onFileSelected($event)" accept="image/*"  required>
+        </label>
 
-  <input hidden="true" #uploadFile id="uploadFile" type="file" (change)="onFileSelected($event)" accept="image/*" >
-  <button mat-raised-button (click)="uploadFile.click()">
-  <!-- <button style="width: auto;" mat-icon-button (click)="uploadFile.click()"> -->
-          Choose File <mat-icon >attachment</mat-icon>
-        <!-- </button> -->
-      </button><br><br><br>
         
-  <div *ngIf="photo">
+        <button *ngIf="photo" mat-raised-button (click)="photo?openImageDialog(createObjectURL(photo)):''">View Suspect Photo<mat-icon>visibility</mat-icon></button>
+      </div>
 
-<mat-card class="example-card" > 
-  <mat-card-header class="example-header"
-          style="padding-left: 40%;"> 
-  <h2><span></span>{{photo.name}}</h2 > 
-  </mat-card-header> 
-  <mat-card-content> 
-    <img [src] ="photo?createObjectURL(photo):''" style="display: flex; "> 
-  </mat-card-content> 
-  </mat-card> 
-  
-  
-  </div>
-
-<button mat-raised-button [disabled]="uploading" (click)="upload()">Upload</button>
+      <button mat-raised-button color="primary"[disabled]="uploading||suspectupload.invalid" (click)="upload()" type="submit">Submit</button>
+    </form>
+  </mat-card>
 </div>

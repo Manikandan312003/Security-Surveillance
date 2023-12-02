@@ -10,12 +10,13 @@
 <br/>
 
 </div>
+
 <div class="suspectdetails">
     <div  class="timeline" >
         <div  *ngFor="let suspect of suspectDetails; let i = index"        [ngClass]="(i%2==0)?'container left-container':'container right-container'">
             <div  *ngIf="i==0" class="text-box" >
                 
-                <h2>   Name: {{suspect[0]}}</h2>
+                <h1>   Name: {{suspect[0]}}</h1>
                 <h3>   Reason:<span *ngIf="suspect[1]"> {{suspect[1]}}</span><span *ngIf="!suspect[1]">N/A</span> </h3>
                 <img style="max-width: 100%;" [src]="'data:image/jpg;base64,'+suspect[2]">
                 
@@ -23,13 +24,14 @@
                 
             </div>
             <div *ngIf="i!=0" class="text-box" id="text-box" style="max-width: 100%;" #textbox> 
-                <!-- <button mat-mini-fab>{{i+1}}</button> -->
+
                  <h2>   Date: {{suspect[0]}}</h2>
                 <h3 class="text-box-inside">     <mat-icon>location_on</mat-icon> Location: {{suspect[1]}}</h3>
                 <p><small class="text-box-inside"> Latitude: {{suspect[2]}}</small></p>
                 <p><small class="text-box-inside"> Longitude: {{suspect[3]}}</small></p>
                 <p class="text-box-inside">
                     <a target="_blank" href="https://www.google.com/maps?q={{suspect[2]}},{{suspect[3]}}" matTooltip="View On Map">
+                        
                         <mat-icon>directions</mat-icon > Go To Location{{suspect[4]}}</a>
                     </p>
                 <span   [ngClass]="(i%2==0)?'left-container-arrow':'right-container-arrow'"></span>

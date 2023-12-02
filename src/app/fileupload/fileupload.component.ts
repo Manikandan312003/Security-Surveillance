@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component ,HostListener} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ServiceService } from '../services/service.service';
 import { ToastrService } from 'ngx-toastr';
 import { timeInterval, timeout } from 'rxjs';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ImagedialogComponent } from '../imagedialog/imagedialog.component';
 
 @Component({
   selector: 'app-fileupload',
@@ -11,25 +13,66 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrls: ['./fileupload.component.css'],
 })
 export class FileuploadComponent {
-    constructor(private http:HttpClient,private service:ServiceService,private toast:ToastrService){}
+    constructor(private http:HttpClient,private service:ServiceService,public toast:ToastrService,public dialog: MatDialog){
+
+      this.onDragOver = this.onDragOver.bind(this);
+      this.onDragLeave = this.onDragLeave.bind(this);
+      this.onFileDropped = this.onFileDropped.bind(this);
+    }
 
     uploading:boolean=false;
     photo:File|undefined;
     // photoname:string='';
     name:string="";
     reason:string=""
-
-    onFileSelected(event:any) {
-      if((event.target.files[0]?.type.startsWith('image'))){
-        this.photo = event.target.files[0];
-      }
-      else{
-        this.toast.error("Please choose Photo")
-        // this.photo=undefined;
-        // this.photoname=''
-      }
-      console.log(this.photo?.type)
+    isDragOver:boolean=false
+    
+    onFileSelected(event: Event): void {
+      const selectedFile = (event.target as HTMLInputElement).files?.[0];
+      this.handleFile(selectedFile);
     }
+    @HostListener('drop', ['$event'])
+    onFileDropped(event: DragEvent): void {
+      event.preventDefault();
+      const droppedFile = event.dataTransfer?.files?.[0];
+      this.handleFile(droppedFile);
+      this.isDragOver=false
+    }
+    
+    onDragOver( event: DragEvent): void {
+      event.preventDefault();
+      this.isDragOver=true
+      
+    }
+    
+    onDragLeave( event: DragEvent): void {
+      event.preventDefault();
+      this.isDragOver=false
+    }
+  
+    
+     handleFile(file: File | undefined): void {
+      if (file) {
+        if (file.type.startsWith('image')) {
+          this.photo = file;
+          
+        } else {
+          
+          this.toast.error("Please choose Photo")
+        }
+        console.log(this.photo)
+      }
+    }
+
+    openImageDialog(imageUrl: string): void {
+      const dialogRef = this.dialog.open(ImagedialogComponent, {
+        width: 'auto',
+        data: { imageUrl: imageUrl }
+      });
+
+      
+    }
+  
 
     createObjectURL(file: File): string {
       return URL.createObjectURL(file);
@@ -89,3 +132,4 @@ export class FileuploadComponent {
       
     }
 }
+

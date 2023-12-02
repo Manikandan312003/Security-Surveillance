@@ -11,14 +11,14 @@
   
    -->
    <mat-drawer-container class="fill-container" [hasBackdrop]="true">
-    <mat-drawer #drawer mode="side"  class="custom-drawer-style">
+    <mat-drawer #drawer mode="over"  class="custom-drawer-style">
       <mat-card>
         <mat-card-content class="custom-drawer-content">
-          <div class="custom-drawer-content"  ><button style="width: 100%;" mat-flat-button  routerLink="/home"><mat-icon>home</mat-icon>Home</button><br></div>
-          <div class="custom-drawer-content"  ><button style="width: 100%;" mat-flat-button  routerLink="/upload">Upload</button><br></div>
-          <div class="custom-drawer-content"  ><button style="width: 100%;" mat-flat-button  routerLink="/suspect">Suspects</button><br></div>
-          <div class="custom-drawer-content"  ><button style="width: 100%;" mat-flat-button  routerLink="/mysuspect">My-Suspects</button><br></div>
-          <div class="custom-drawer-content"  ><button style="width: 100%;" mat-flat-button  routerLink="/suspectdetail">Suspect Details</button><br></div>
+          <div class="custom-drawer-content"  ><button style="width: 100%;" mat-flat-button (click)="drawer.close()" routerLink="/home"><mat-icon>home</mat-icon>Home</button><br></div>
+          <div class="custom-drawer-content"  ><button style="width: 100%;" mat-flat-button (click)="drawer.close()" routerLink="/upload">Upload</button><br></div>
+          <div class="custom-drawer-content"  ><button style="width: 100%;" mat-flat-button (click)="drawer.close()" routerLink="/suspect">Suspects</button><br></div>
+          <div class="custom-drawer-content"  ><button style="width: 100%;" mat-flat-button (click)="drawer.close()" routerLink="/mysuspect">My-Suspects</button><br></div>
+          <div class="custom-drawer-content"  ><button style="width: 100%;" mat-flat-button (click)="drawer.close()" routerLink="/suspectdetail">Suspect Details</button><br></div>
         </mat-card-content>
       </mat-card>
     </mat-drawer>

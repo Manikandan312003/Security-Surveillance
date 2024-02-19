@@ -10,54 +10,63 @@
   </button>
   
    -->
-   <mat-drawer-container class="fill-container" [hasBackdrop]="true">
-    <mat-drawer #drawer mode="over"  class="custom-drawer-style">
-      <mat-card>
-        <mat-card-content class="custom-drawer-content">
-          <div class="custom-drawer-content"  ><button style="width: 100%;" mat-flat-button (click)="drawer.close()" routerLink="/home"><mat-icon>home</mat-icon>Home</button><br></div>
-          <div class="custom-drawer-content"  ><button style="width: 100%;" mat-flat-button (click)="drawer.close()" routerLink="/upload">Upload</button><br></div>
-          <div class="custom-drawer-content"  ><button style="width: 100%;" mat-flat-button (click)="drawer.close()" routerLink="/suspect">Suspects</button><br></div>
-          <div class="custom-drawer-content"  ><button style="width: 100%;" mat-flat-button (click)="drawer.close()" routerLink="/mysuspect">My-Suspects</button><br></div>
-          <div class="custom-drawer-content"  ><button style="width: 100%;" mat-flat-button (click)="drawer.close()" routerLink="/suspectdetail">Suspect Details</button><br></div>
-        </mat-card-content>
-      </mat-card>
-    </mat-drawer>
-    <mat-drawer-content>
-  
-  <p>
-    <mat-toolbar color="primary">
-      <button mat-icon-button class="example-icon" (click)="drawer.toggle()" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span style="  text-align: center; flex-grow: 1; ">Security Surveillance</span>
-      <!-- <span class="example-spacer"></span> -->
-      <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+<mat-drawer-container class="fill-container" [hasBackdrop]="true">
+  <mat-drawer #drawer mode="side" class="custom-drawer-style">
+    <mat-card>
+      <mat-card-content class="custom-drawer-content">
+        <div class="custom-drawer-content">
+          <button style="width: 100%;" mat-flat-button (click)="drawer.close()"
+            routerLink="/home"><mat-icon>home</mat-icon>Home</button><br>
+        </div>
+        <div class="custom-drawer-content">
+          <button style="width: 100%;" mat-flat-button (click)="drawer.close()" routerLink="/upload">Upload</button><br>
+        </div>
+        <div class="custom-drawer-content">
+          <button style="width: 100%;" mat-flat-button (click)="drawer.close()"
+            routerLink="/suspect">Suspects</button><br>
+        </div>
+        <div class="custom-drawer-content">
+          <button style="width: 100%;" mat-flat-button (click)="drawer.close()"
+            routerLink="/mysuspect">My-Suspects</button><br>
+        </div>
+        <div class="custom-drawer-content">
+          <button style="width: 100%;" mat-flat-button (click)="drawer.close()" routerLink="/suspectdetail">Suspect
+            Details</button><br>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-drawer>
+  <mat-drawer-content>
+
+    <p>
+      <mat-toolbar color="primary">
+        <button *ngIf="service.userLoggedIn" mat-icon-button disableRipple="true" class="example-icon"
+          (click)="drawer.toggle()" aria-label="Example icon-button with menu icon">
+          <mat-icon disableRipple="true">menu</mat-icon>
+        </button>
+        <span style="  text-align: center; flex-grow: 1; ">Security Surveillance</span>
+        <!-- <span class="example-spacer"></span> -->
+        <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
         <mat-icon>favorite</mat-icon>
       </button> -->
-      <button mat-flat-button (click)="logout()">Logout
-        <mat-icon
-          aria-hidden="false"
-          aria-label="logout icon"
-          fontIcon="logout"
-          [ariaSetSize]="50"
-          ></mat-icon>
-      </button>
-    </mat-toolbar>
-  </p>
-  <!-- <div class="navbar">
+        <button *ngIf="service.userLoggedIn" mat-flat-button (click)="logout()">Logout
+          <mat-icon aria-hidden="false" aria-label="logout icon" fontIcon="logout" [ariaSetSize]="50"></mat-icon>
+        </button>
+      </mat-toolbar>
+    </p>
+    <!-- <div class="navbar">
     <div class="navbar-content" >
       <span class="navbar-title">Security Surveillance</span>
       <span><button  class="navbar-logout" mat-raised-button>Logout</button></span>
     </div>
   </div> -->
-  <div class="page-container">
-    <router-outlet></router-outlet>
-  </div>
-</mat-drawer-content>
-  </mat-drawer-container>
+    <div class="page-container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
 <style>
-    .example-spacer {
-  flex: 1 1 auto;
-}
-
+  .example-spacer {
+    flex: 1 1 auto;
+  }
 </style>

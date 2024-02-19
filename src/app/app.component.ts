@@ -16,7 +16,7 @@ export class AppComponent {
     
 
   title = 'SuspectTracker';
-  constructor(private service:ServiceService,private router:Router){
+  constructor(public service:ServiceService,private router:Router){
     console.log(window.location.pathname)
     console.log(service.loggedInUserId,service.userLoggedIn)
     if(!service.userLoggedIn){
